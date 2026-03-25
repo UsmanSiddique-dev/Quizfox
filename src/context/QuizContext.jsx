@@ -7,23 +7,37 @@ export const QuizContext = createContext();
 const initialState = {
   username: "",
   questions,
+  index: 0,
+  score: 0,
+  completed: false,
 };
-const quizReducer =(state,action)=>{
-   switch (action.type) {
+const quizReducer = (state, action) => {
+  switch (action.type) {
     case "SET_USERNAME":
-        return {
-            ...state,
-            username: action.payload
-        }
-        
-        
-   
+      return {
+        ...state,
+        username: action.payload,
+      };
+    case "ANSWER":
+      return {
+        ...state,
+        score: state.payload ? state.score + 1 : state.score,
+        index: state.index + 1,
+      };
+    case "FINISH":
+      return {
+        ...state,
+        completed: true,
+      };
+    case "RESET":
+      return {
+        ...initialState,
+        questions: state.questions,
+      };
     default:
-        return state;
-        
-   }
-
-}
+      return state;
+  }
+};
 export default function QuizProvider({ children }) {
   const [state, dispatch] = useReducer(quizReducer, initialState);
 
