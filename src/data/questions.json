@@ -1,0 +1,32 @@
+[
+  {
+    "id": 1,
+    "question": "What is the capital city of France?",
+    "options": ["Paris", "Berlin", "Rome", "Madrid"],
+    "rightAnswer": "Paris"
+  },
+  {
+    "id": 2,
+    "question": "Which planet is known as the Red Planet?",
+    "options": ["Earth", "Mars", "Jupiter", "Venus"],
+    "rightAnswer": "Mars"
+  },
+  {
+    "id": 3,
+    "question": "What year did the Apollo 11 mission land on the Moon?",
+    "options": ["1959", "1969", "1979", "1989"],
+    "rightAnswer": "1969"
+  },
+  {
+    "id": 4,
+    "question": "Which element has the chemical symbol 'O'?",
+    "options": ["Gold", "Oxygen", "Silver", "Helium"],
+    "rightAnswer": "Oxygen"
+  },
+  {
+    "id": 5,
+    "question": "Who wrote the novel '1984'?",
+    "options": ["Aldous Huxley", "George Orwell", "Ray Bradbury", "Isaac Asimov"],
+    "rightAnswer": "George Orwell"
+  }
+]
