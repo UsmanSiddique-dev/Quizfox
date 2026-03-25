@@ -1,7 +1,15 @@
 import React from "react";
+import {useState,useContext} from "react"
+import { useNavigate } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
 
 function Home() {
+  const [name,setName]=useState("")
+  const startQuiz = () => {
+   if(!name.trim()) return alert("Please enter your name")
+    
+  }
+
   return (
     <div className="container text-center mt-5">
       <h1 className="fw-bold mb-4">🚀 React Quiz Challenge</h1>
@@ -9,9 +17,12 @@ function Home() {
         placeholder="Enter your name"
         className="form-control w-50 mx-auto mb-3"
         type="text"
+        
+        onChange={(e)=>setName(e.target.value)}
+
         autocomplete="off"
       />
-      <button className="btn btn-primary btn-lg">Start Quiz</button>
+      <button className="btn btn-primary btn-lg" onClick={startQuiz}>Start Quiz</button>
     </div>
   );
 }
