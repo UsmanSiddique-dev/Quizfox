@@ -11,7 +11,7 @@ function Home() {
   const [name, setName] = useState("");
   const startQuiz = () => {
     if (!name.trim()) return alert("Please enter your name");
-    dispatch({ type: "SET_NAME", payload: name });
+    dispatch({ type: "SET_USERNAME", payload: name });
     navigate("/quiz");
   };
 

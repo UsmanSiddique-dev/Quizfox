@@ -18,10 +18,15 @@ const quizReducer = (state, action) => {
         ...state,
         username: action.payload,
       };
+    case "SET_NAME":
+      return {
+        ...state,
+        username: action.payload,
+      };
     case "ANSWER":
       return {
         ...state,
-        score: state.payload ? state.score + 1 : state.score,
+        score: action.payload ? state.score + 1 : state.score,
         index: state.index + 1,
       };
     case "FINISH":

@@ -1,5 +1,5 @@
 import React from "react";
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import { QuizContext } from "../context/QuizContext";
 import { useNavigate } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
@@ -13,6 +13,12 @@ function Quiz() {
   const { index, questions } = state;
   const navigate = useNavigate();
   const { time, reset } = useTimer(15);
+  useEffect(() => {
+    if (time === 0) {
+      dispatch({ type: "ANSWER", payload: false });
+      reset();
+    }
+  }, [time, reset, dispatch]);
 
   if (!questions || questions.length === 0) {
     return <h2 className="text-center mt-5">Loading...</h2>;
