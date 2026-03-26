@@ -6,11 +6,13 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import ProgressBar from "../components/ProgressBar";
 import QuestionCard from "../components/QuestionCard";
 import Timer from "../components/Timer";
+import useTimer from "../hooks/useTimer";
 
 function Quiz() {
   const { state, dispatch } = useContext(QuizContext);
   const { index, questions } = state;
   const navigate = useNavigate();
+  const { time, reset } = useTimer(15);
 
   if (!questions || questions.length === 0) {
     return <h2 className="text-center mt-5">Loading...</h2>;
@@ -25,14 +27,15 @@ function Quiz() {
 
   const handleSelect = (option) => {
     dispatch({ type: "ANSWER", payload: option === current.rightAnswer });
+    reset();
   };
 
   return (
     <div className="container mt-4">
-      <Timer />
+      <Timer time={time} />
       <ProgressBar current={index} total={questions.length} />
       <QuestionCard
-        questions={current.question}
+        question={current.question}
         options={current.options}
         onSelect={handleSelect}
       />
